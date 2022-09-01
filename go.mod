@@ -7,6 +7,7 @@ require (
 	gorm.io/gorm v1.23.8
 )
 
+
 require (
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.12.1 // indirect
