@@ -4,12 +4,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/Integrated-Path/sas4_external_api/config"
-	"github.com/Integrated-Path/sas4_external_api/handlers"
-	"github.com/gofiber/swagger"
+	"github.com/ahmadn91/odoo_external_api_service/config"
+	"github.com/ahmadn91/odoo_external_api_service/handlers"
+	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
-	"github.com/goccy/go-json"
 	"github.com/volatiletech/sqlboiler/v4/boil"
 )
 
@@ -30,13 +29,13 @@ func main() {
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_NAME"),
 		os.Getenv("DB_PORT"),
-		os.Getenv("DB_SSLMODE"),
+		
 	)
 	boil.SetDB(config.Database)
 	boil.DebugMode = true
 
 
-	app.Get("/resPartner", handlers.GetContact)
+	app.Get("/resPartner", handlers.GetContacts)
 	log.Printf("server started")
 	log.Fatal(app.Listen(":3000"))
 }
