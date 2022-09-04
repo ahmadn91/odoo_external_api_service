@@ -1,0 +1,23 @@
+output   = "models"
+wipe     = true
+add-global-variants = true
+add-panic-variants = true
+add-enum-types = true
+
+[psql]
+dbname = "15-INHOUSE"
+host = "192.168.40.131"
+port = 5432
+user = "postgres"
+password = "ubuntu"
+whitelist = ["res_partner"]
+blacklist = ["migrations", "addresses.name", "*.secret_col"]
+sslmode = "disable"
+
+# |To allow remote acess to postgres|
+# SHOW hba_file; for postgresql.conf
+# https://askubuntu.com/questions/256534/how-do-i-find-the-path-to-pg-hba-conf-from-the-shell
+# host all all 0.0.0.0/0 md5 :to allow remote access to postgresql
+# listen_addresses = '*'
+# if you faced an issue starting db after config changes, this might help:
+# https://stackoverflow.com/questions/31645550/postgresql-why-psql-cant-connect-to-server
