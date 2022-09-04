@@ -5,11 +5,12 @@ import (
 	"log"
 
 	"github.com/ahmadn91/odoo_external_api_service/entities"
+	"github.com/volatiletech/sqlboiler/v4/boil"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-var Database *gorm.DB
+var Database *boil.Executor
 
 var DATABASE_URI string = "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable"
 
