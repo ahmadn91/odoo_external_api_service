@@ -3,6 +3,7 @@ package entities
 import "time"
 
 type Contact struct {
+	
 	ID          uint   `json:"id"`
 	Name        string `json:"name"`
 	DisplayName string `json:"displayName"`
