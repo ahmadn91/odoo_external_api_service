@@ -38,6 +38,8 @@ func main() {
 
 
 	app.Get("/contacts", handlers.GetContacts)
+	app.Get("/contact/:id", handlers.GetContact)
+	app.Post("/contact", handlers.GetContact)
 	log.Printf("server started")
 	log.Fatal(app.Listen(":3000"))
 }
