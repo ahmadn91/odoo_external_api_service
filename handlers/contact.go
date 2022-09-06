@@ -36,6 +36,4 @@ func GetContacts(c *fiber.Ctx) error {
 		return c.JSON(err)
 	} 
 	return c.Status(200).JSON(contacts)
-
-
 }

@@ -4,10 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-
-	"github.com/ahmadn91/odoo_external_api_service/entities"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
+	_ "github.com/lib/pq"
 )
 
 var Database *sql.DB
@@ -19,12 +16,12 @@ func Connect(host, user, password, dbName, port string) error {
 		connectionString := fmt.Sprintf(DATABASE_URI, host, user, password, dbName, port)
 
 
-	Database, err := gorm.Open(postgres.Open(connectionString), &gorm.Config{})
+	Database, err = sql.Open("postgres", connectionString)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	Database.AutoMigrate(&entities.Contact{})
+	
 	return nil
 }

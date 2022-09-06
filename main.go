@@ -23,7 +23,7 @@ func main() {
 	// 	log.Fatal("Error loading .env file")
 	// }
 
-	log.Printf("Connect to the database")
+	log.Printf("Connecting to the database")
 	config.Connect(
 		"192.168.40.131",
 		"postgres",
@@ -32,6 +32,7 @@ func main() {
 		"5432",
 		
 	)
+	log.Printf("Connected to the database")
 	boil.SetDB(config.Database)
 	boil.DebugMode = true
 
